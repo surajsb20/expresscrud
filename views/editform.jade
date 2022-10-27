@@ -1,0 +1,33 @@
+extends layout 
+
+block content 
+
+    p CRUD
+    .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            button.close(type="button", data-dismiss="modal")
+              span(aria-hidden="true") ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+             Add Student
+          // Modal Body
+          .modal-body
+            form(role='form' method='POST' action='http://localhost:3000/studentupdate')
+              input#name.form-control(type='hidden',  name='_id' value=data._id)
+              div.form-group
+                label(for='name') Name:
+                input#name.form-control(type='text', placeholder='name' name='name' value=data.name)
+              div.form-group
+                label(for='email') Email:
+                input#email.form-control(type='email', placeholder='name@email.com' name='email' value=data.email)
+              button.btn.btn-primary(type="submit", name="asdf") Submit
+              button.btn.btn-default(type="button", data-dismiss="modal")
+                | Close
+          // Modal Footer
+          .modal-footer
+            h4 footer
+
+    // footer
+    p.foot.text-xs-center CRUD
